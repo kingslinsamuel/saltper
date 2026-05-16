@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand-black: #000000;
+  --color-brand-white: #FFFFFF;
+  --color-brand-orange: #FF9800;
+  --color-brand-orange-hover: #FFB547;
+  --color-brand-grey-light: #E9E9E9;
+  --color-brand-grey-border: #D9D9D9;
+  --color-brand-grey-text: #666666;
+  --color-brand-blue: #1E5BFF;
+  --color-brand-red: #FF2B2B;
+  --color-brand-dark: #111111;
+  --color-brand-graphite: #1A1A1A;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-white text-brand-black font-sans antialiased selection:bg-brand-orange selection:text-white;
+  }
+}
+
+.glass {
+  @apply bg-white/10 backdrop-blur-md border border-white/20;
+}
+
+.glass-dark {
+  @apply bg-black/40 backdrop-blur-lg border border-white/10;
+}
+
+.diagonal-split {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+}
+
+.cursor-glow {
+  background: radial-gradient(circle at center, var(--color-brand-orange) 0%, transparent 70%);
+  @apply fixed w-[400px] h-[400px] rounded-full blur-[100px] opacity-20 pointer-events-none z-0;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
