@@ -77,22 +77,25 @@ export default function AIChatbot() {
             initial={{ opacity: 0, y: 100, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 100, scale: 0.8 }}
-            className="fixed bottom-24 right-6 z-50 w-[400px] max-w-[90vw] h-[600px] max-h-[70vh] glass-dark rounded-3xl overflow-hidden flex flex-col shadow-2xl border-white/20"
+            className="fixed bottom-24 right-6 z-50 w-[420px] max-w-[90vw] h-[650px] max-h-[75vh] liquid-glass rounded-[3rem] overflow-hidden flex flex-col shadow-3xl border-white/30"
           >
             {/* Header */}
-            <div className="p-6 bg-brand-orange text-white flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-md">
+            <div className="p-8 bg-brand-orange/10 backdrop-blur-3xl text-white flex items-center justify-between border-b border-white/10 group">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-brand-orange flex items-center justify-center shadow-lg shadow-brand-orange/30 group-hover:rotate-12 transition-transform duration-500">
                   <Sparkles className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-display font-medium text-lg leading-tight">SaltPer AI</h3>
-                  <span className="text-xs text-white/80">Always active</span>
+                  <h3 className="font-display font-black text-xl leading-tight tracking-tight">SALTPER INTELLIGENCE</h3>
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+                    <span className="text-[10px] font-black uppercase tracking-widest text-white/60">Systems Active</span>
+                  </div>
                 </div>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-2 hover:bg-black/10 rounded-full transition-colors"
+                className="w-10 h-10 flex items-center justify-center hover:bg-white/10 rounded-xl transition-colors border border-white/10"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -111,10 +114,10 @@ export default function AIChatbot() {
                   className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div className={`flex gap-3 max-w-[85%] ${m.role === "user" ? "flex-row-reverse" : "flex-row"}`}>
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${m.role === "user" ? "bg-brand-blue" : "bg-brand-graphite"}`}>
-                      {m.role === "user" ? <User className="w-4 h-4 text-white" /> : <Bot className="w-4 h-4 text-white" />}
+                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg ${m.role === "user" ? "bg-brand-blue" : "bg-white/10 backdrop-blur-md border border-white/10"}`}>
+                      {m.role === "user" ? <User className="w-5 h-5 text-white" /> : <Bot className="w-5 h-5 text-brand-orange" />}
                     </div>
-                    <div className={`p-4 rounded-2xl text-sm ${m.role === "user" ? "bg-brand-orange text-white" : "bg-white/5 text-brand-grey-light border border-white/10"}`}>
+                    <div className={`p-5 rounded-[2rem] text-sm leading-relaxed ${m.role === "user" ? "bg-brand-orange text-white" : "bg-white/5 text-white border border-white/10 backdrop-blur-3xl"}`}>
                       {m.content}
                     </div>
                   </div>

@@ -59,56 +59,62 @@ export default function AnalyticsPreview() {
             className="relative"
           >
             {/* Dashboard Mockup */}
-            <div className="glass-dark rounded-[2.5rem] border-white/10 p-8 shadow-3xl">
-              <div className="flex items-center justify-between mb-8">
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 bg-brand-orange rounded-xl flex items-center justify-center">
+            <div className="liquid-glass rounded-[3.5rem] border-white/20 p-10 shadow-3xl">
+              <div className="flex items-center justify-between mb-10">
+                <div className="flex items-center gap-5">
+                  <div className="w-12 h-12 bg-brand-orange rounded-2xl flex items-center justify-center shadow-lg shadow-brand-orange/30">
                     <BarChart className="text-white w-6 h-6" />
                   </div>
                   <div>
-                    <div className="text-sm font-bold">ROI Dashboard</div>
-                    <div className="text-[10px] text-white/40 uppercase tracking-widest">Real-time stats</div>
+                    <div className="text-lg font-black tracking-tight">GROWTH ENGINE</div>
+                    <div className="text-[10px] text-white/40 uppercase tracking-[0.2em] font-black">Analytics v4.2</div>
                   </div>
                 </div>
                 <div className="flex gap-2">
-                   <div className="w-3 h-3 rounded-full bg-red-500/50" />
-                   <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
-                   <div className="w-3 h-3 rounded-full bg-green-500/50" />
+                   <div className="w-3 h-3 rounded-full bg-red-500/30" />
+                   <div className="w-3 h-3 rounded-full bg-yellow-500/30" />
+                   <div className="w-3 h-3 rounded-full bg-green-500/30" />
                 </div>
               </div>
               
               {/* Visual Graph Placeholder */}
-              <div className="h-64 rounded-2xl bg-white/5 border border-white/5 p-6 relative overflow-hidden flex items-end gap-1">
+              <div className="h-64 rounded-3xl bg-white/5 border border-white/10 p-8 relative overflow-hidden flex items-end gap-1.5 glass-dark">
                  {[40, 70, 45, 90, 65, 80, 50, 100, 85, 95, 75, 110].map((h, i) => (
                    <motion.div 
                      key={i}
                      initial={{ height: 0 }}
                      whileInView={{ height: `${h}%` }}
                      transition={{ duration: 1, delay: i * 0.05 }}
-                     className="flex-1 bg-gradient-to-t from-brand-orange to-brand-orange/20 rounded-t-sm"
+                     className="flex-1 bg-gradient-to-t from-brand-orange via-brand-orange/50 to-transparent rounded-t-lg"
                    />
                  ))}
-                 <div className="absolute top-10 left-10 p-4 glass rounded-xl border-white/10">
-                    <div className="text-[10px] uppercase font-bold text-white/60">Live Visitors</div>
-                    <div className="text-2xl font-bold">142</div>
+                 <div className="absolute top-8 left-8 p-6 liquid-glass rounded-2xl border-white/20 shadow-2xl">
+                    <div className="text-[10px] uppercase font-black tracking-widest text-white/60 mb-1">Live Efficiency</div>
+                    <div className="text-3xl font-display font-black text-brand-orange">94.8%</div>
                  </div>
               </div>
 
-              <div className="mt-8 grid grid-cols-3 gap-4">
+              <div className="mt-8 grid grid-cols-3 gap-6">
                  {[1, 2, 3].map((_, i) => (
-                   <div key={i} className="h-20 rounded-xl bg-white/5 border border-white/5" />
+                   <div key={i} className="h-24 rounded-2xl glass-dark border border-white/5 flex items-center justify-center">
+                     <div className="w-8 h-8 rounded-lg bg-white/5 animate-pulse" />
+                   </div>
                  ))}
               </div>
             </div>
             
             {/* Decorative Card */}
             <motion.div 
-              animate={{ y: [0, 20, 0] }}
-              transition={{ duration: 6, repeat: Infinity }}
-              className="absolute -bottom-10 -right-10 p-6 glass rounded-2xl shadow-2xl border-white/20"
+              animate={{ y: [0, 20, 0], x: [0, -10, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -bottom-12 -left-12 p-8 liquid-glass rounded-[2rem] shadow-4xl border-white/30 z-20 min-w-[240px]"
             >
-               <div className="text-xs font-bold text-brand-orange mb-2">CRITICAL ALERT</div>
-               <div className="text-sm">Conversion spike detected (+12%)</div>
+               <div className="text-[10px] font-black tracking-[0.2em] text-brand-orange mb-3 uppercase">Neural Insight</div>
+               <div className="text-sm font-medium leading-relaxed">Optimization identified: Scalability bottleneck resolved in Region-01.</div>
+               <div className="mt-4 flex items-center gap-2">
+                 <div className="w-2 h-2 bg-green-500 rounded-full" />
+                 <span className="text-[10px] uppercase font-black text-white/40 tracking-widest">Applying fix...</span>
+               </div>
             </motion.div>
           </motion.div>
         </div>

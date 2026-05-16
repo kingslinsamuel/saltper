@@ -55,11 +55,11 @@ export default function Hero() {
           <h1 className="text-6xl md:text-8xl font-display font-extrabold leading-[0.9] mb-8 tracking-tighter">
             WE BUILD <br />
             <span className="text-brand-orange">GROWTH</span> <br />
-            SYSTEMS.
+            ECOSYSTEMS.
           </h1>
           
           <p className="text-xl md:text-2xl text-white/80 max-w-lg mb-10 leading-relaxed font-light">
-            AI-powered revenue websites engineered for modern businesses ready to scale from ₹25k / $1,500.
+            We implement the exact systems billion-traffic giants use to dominate markets. AI-powered revenue engines engineered for scale.
           </p>
 
           <div className="flex flex-wrap gap-4">
@@ -88,25 +88,43 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.4 }}
           className="hidden md:block relative"
         >
-          <div className="relative z-10 w-full aspect-square glass-dark rounded-[10%] p-2 overflow-hidden shadow-2xl border-white/30 rotate-3">
-             <img 
-               src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200" 
-               alt="Digital Growth" 
-               className="w-full h-full object-cover rounded-[8%]"
-             />
-             {/* Float metrics card */}
-             <motion.div 
-               animate={{ y: [0, -10, 0] }}
-               transition={{ duration: 4, repeat: Infinity }}
-               className="absolute top-10 -left-10 glass p-4 rounded-2xl shadow-xl border-brand-orange/30"
-             >
-                <div className="text-xs text-brand-grey-text uppercase font-bold mb-1">Conversion Rate</div>
-                <div className="text-2xl font-display font-bold text-brand-orange">+340%</div>
-             </motion.div>
+          <div className="relative z-10 w-full aspect-square liquid-glass rounded-[4rem] p-4 shadow-3xl rotate-3">
+             <div className="w-full h-full rounded-[3.5rem] overflow-hidden relative">
+               <img 
+                 src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200" 
+                 alt="Digital Growth" 
+                 className="w-full h-full object-cover grayscale brightness-50"
+               />
+               <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent" />
+               
+               {/* Internal Glass Elements */}
+               <motion.div 
+                 animate={{ y: [0, -20, 0], x: [0, 10, 0] }}
+                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-1/2 glass-dark rounded-3xl p-8 flex flex-col justify-center"
+               >
+                  <div className="text-white/40 text-[10px] uppercase font-black tracking-[0.2em] mb-2">Real-time Growth</div>
+                  <div className="text-4xl font-display font-black text-brand-orange mb-4">$2,450,900</div>
+                  <div className="flex gap-2">
+                    {[1, 2, 3, 4, 5].map(i => (
+                      <div key={i} className="h-1 bg-brand-orange rounded-full flex-1" style={{ height: `${i * 20}%` }} />
+                    ))}
+                  </div>
+               </motion.div>
+             </div>
           </div>
           
+          {/* Glass Decorator */}
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute -top-12 -right-12 w-32 h-32 liquid-glass rounded-full z-20 flex items-center justify-center p-4 border-brand-orange/40"
+          >
+             <div className="text-[10px] font-black uppercase tracking-widest text-white text-center">95+ Speed</div>
+          </motion.div>
+          
           {/* Background shapes */}
-          <div className="absolute -bottom-10 -right-10 w-full h-full border-2 border-brand-orange/20 rounded-[10%] -rotate-6 z-0" />
+          <div className="absolute -bottom-10 -right-10 w-full h-full border-2 border-brand-orange/20 rounded-[4rem] -rotate-6 z-0" />
         </motion.div>
       </div>
 

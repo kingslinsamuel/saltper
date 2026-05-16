@@ -25,11 +25,22 @@
 }
 
 .glass {
-  @apply bg-white/10 backdrop-blur-md border border-white/20;
+  @apply bg-white/10 backdrop-blur-2xl border border-white/20 shadow-[0_8px_32px_0_rgba(255,255,255,0.1)];
 }
 
 .glass-dark {
-  @apply bg-black/40 backdrop-blur-lg border border-white/10;
+  @apply bg-black/40 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.5)];
+}
+
+.liquid-glass {
+  @apply bg-white/5 backdrop-blur-[40px] border border-white/10 shadow-2xl relative overflow-hidden;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+}
+
+.liquid-glass::after {
+  content: '';
+  @apply absolute inset-0 opacity-20 pointer-events-none;
+  background: linear-gradient(135deg, white 0%, transparent 50%, transparent 100%);
 }
 
 .diagonal-split {
