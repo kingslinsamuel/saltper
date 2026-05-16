@@ -1,4 +1,5 @@
 import { Instagram, Twitter, Linkedin, ArrowUp } from "lucide-react";
+import Logo from "./Logo";
 
 export default function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
@@ -8,10 +9,8 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-24">
           <div className="md:col-span-2">
-            <a href="/" className="flex items-center gap-1 mb-8">
-              <span className="text-3xl font-display font-extrabold tracking-tighter">
-                <span className="text-brand-orange">Salt</span>Per<span className="text-brand-red">.</span>
-              </span>
+            <a href="/" className="inline-block mb-8">
+              <Logo className="scale-125 origin-left" />
             </a>
             <p className="text-xl text-brand-grey-text max-w-sm mb-10 leading-relaxed">
               We design and build premium digital experiences that win clients and drive massive revenue growth.

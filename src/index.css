@@ -26,15 +26,18 @@
 
 .glass {
   @apply bg-white/10 backdrop-blur-2xl border border-white/20 shadow-[0_8px_32px_0_rgba(255,255,255,0.1)];
+  will-change: backdrop-filter;
 }
 
 .glass-dark {
   @apply bg-black/40 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.5)];
+  will-change: backdrop-filter;
 }
 
 .liquid-glass {
   @apply bg-white/5 backdrop-blur-[40px] border border-white/10 shadow-2xl relative overflow-hidden;
   background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  will-change: transform, opacity, backdrop-filter;
 }
 
 .liquid-glass::after {

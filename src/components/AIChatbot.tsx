@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { MessageSquare, X, Send, Bot, User, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { ai, chatModel, SYSTEM_INSTRUCTION } from "@/src/lib/gemini";
+import Logo from "./Logo";
 
 interface Message {
   role: "user" | "assistant";
@@ -15,13 +16,22 @@ export default function AIChatbot() {
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isReady, setIsReady] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Delay AI assistant initialization to ensure smooth main thread load
+    const timer = setTimeout(() => setIsReady(true), 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages]);
+
+  if (!isReady) return null;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -82,11 +92,9 @@ export default function AIChatbot() {
             {/* Header */}
             <div className="p-8 bg-brand-orange/10 backdrop-blur-3xl text-white flex items-center justify-between border-b border-white/10 group">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-brand-orange flex items-center justify-center shadow-lg shadow-brand-orange/30 group-hover:rotate-12 transition-transform duration-500">
-                  <Sparkles className="w-6 h-6" />
-                </div>
+                <Logo className="scale-75 -ml-2" />
                 <div>
-                  <h3 className="font-display font-black text-xl leading-tight tracking-tight">SALTPER INTELLIGENCE</h3>
+                  <h3 className="font-display font-black text-xl leading-tight tracking-tight">INTELLIGENCE</h3>
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
                     <span className="text-[10px] font-black uppercase tracking-widest text-white/60">Systems Active</span>
